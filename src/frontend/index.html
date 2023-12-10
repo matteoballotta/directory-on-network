@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style">
+    <title>DoN - Directory on Network</title>
   </head>
   <body onload='load_files()'>
-    <h1>Files</h1>
-    <hr />
-    <div id='files'></div>
+    <div class="container">
+      <h1>📁 Files</h1>
+      <hr />
+      <button onclick="load_files()" class="btn-blue">Refresh</button>
+      <div id='files'></div>
+    </div>
     <script type='application/javascript' src='script'></script>
   </body>
 </html>

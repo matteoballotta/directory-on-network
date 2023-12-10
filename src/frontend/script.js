@@ -4,12 +4,13 @@ function load_files() {
     if(xhttp.readyState === 4 && xhttp.status === 200) {
       let files = JSON.parse(xhttp.response);
       let filesContainer = document.getElementById('files');
+      filesContainer.innerHTML = '';
       files.forEach(file => {
         let element = document.createElement('a');
         element.className = 'file';
         element.href = `download/${file}`;
         element.textContent = file;
-        filesContainer.appendChild(element);
+        filesContainer.append('📝 ', element, document.createElement('br'));
       });
     }
   }

@@ -1,9 +1,18 @@
-# directory-on-network
+# DoN - Directory on Network
 
-Usage  : node src/server.js path/to/dir [your-ip] [port]
+<h3>✅ Usage</h3>
+node src/server.js path/to/dir [your-ip] [port]
 <br />
-Example: node src/server.js /home/usr/Desktop 192.168.1.8 3000
+Leaving the arguments blank will use default options as listed
+<ul>
+  <li>Path: current</li>
+  <li>IP: loopback IP</li>
+  <li>Port: Default port of 3000</li>
+</ul>
 
-TODO: 
-    Input check
-    Remove directories as files
+<hr />
+
+<h3>📦 Dependencies</h3>
+<ul>
+  <li><a href="https://expressjs.com/">Express</a></li>
+</ul>
