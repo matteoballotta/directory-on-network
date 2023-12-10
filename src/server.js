@@ -15,15 +15,28 @@ app.get('/script', (req, res) => {
   res.sendFile(`${__dirname}/frontend/script.js`);
 });
 
-app.get('/get_files', (req, res) => {
-  const files = [];
-  filesys.readdir(directory, (err, files) => {
-    files.forEach(file => {
-      files.push(file);
-    });
-    res.send(files);
-  });
+app.get('/style', (req, res) => {
+  res.setHeader('Content-Type', 'text/css')
+  res.sendFile(`${__dirname}/frontend/style.css`);
+});
 
+app.get('/get_files', (req, res) => {
+  const filesArray = [];
+  filesys.readdir(directory, {withFileTypes: true}, (err, files) => {
+    if(err) {
+      console.error('Error: ', err);
+      return;
+    }
+
+    const noDir = files
+      .filter(file => file.isFile())
+      .map(file => file.name);
+
+    noDir.forEach(file => {
+      filesArray.push(file);
+    });
+    res.send(filesArray);
+  });
 });
 
 app.get('/download/:filename', (req, res) => {

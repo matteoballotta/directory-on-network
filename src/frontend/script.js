@@ -3,11 +3,14 @@ function load_files() {
   xhttp.onreadystatechange = () => {
     if(xhttp.readyState === 4 && xhttp.status === 200) {
       let files = JSON.parse(xhttp.response);
-      let html = '';
+      let filesContainer = document.getElementById('files');
       files.forEach(file => {
-        html += `<a href="download/${file}">${file}</a><br />`;
+        let element = document.createElement('a');
+        element.className = 'file';
+        element.href = `download/${file}`;
+        element.textContent = file;
+        filesContainer.appendChild(element);
       });
-      document.getElementById('files').innerHTML = html;
     }
   }
   xhttp.open('GET', 'get_files', true);
