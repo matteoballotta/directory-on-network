@@ -1,7 +1,7 @@
 # DoN - Directory on Network
 
 <h3>✅ Usage</h3>
-node src/server.js path/to/dir [your-ip] [port]
+node src/server.js path/to/dir [server-ip] [port]
 <br />
 Leaving the arguments blank will use default options as listed
 <ul>
